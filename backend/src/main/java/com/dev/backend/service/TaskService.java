@@ -2,6 +2,7 @@ package com.dev.backend.service;
 
 import com.dev.backend.dto.TaskCreateDto;
 import com.dev.backend.dto.TaskDto;
+import com.dev.backend.dto.TaskUpdateDto;
 import com.dev.backend.entity.Task;
 import com.dev.backend.mapper.TaskMapper;
 import com.dev.backend.repository.TaskRepository;
@@ -31,7 +32,7 @@ public class TaskService {
         return taskMapper.taskDto(taskRepository.save(task));
     }
 
-    public TaskDto update(Long id, TaskDto taskDto){
+    public TaskDto update(Long id, TaskUpdateDto taskDto){
         return taskRepository.findById(id)
                 .map(task ->{
                         if (taskDto.title()!=null) task.setTitle(taskDto.title());
